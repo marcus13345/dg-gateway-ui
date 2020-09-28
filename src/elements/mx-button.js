@@ -21,6 +21,8 @@ class MxButton extends LitElement {
 				line-height: calc(var(--height) - calc(var(--outline) * 2));
 				cursor: pointer;
 				color: rgba(0, 0, 0, 0.9);
+				white-space: nowrap;
+				overflow: hidden;
 			}
 
 			.button[raised] {

@@ -1,19 +1,19 @@
 import { LitElement, html, css } from 'lit-element';
-import Cookies from 'js-cookie';
+import auth from './../lib/auth';
 
 class DgRoot extends LitElement {
 
-	auth = false;
+	authState = false;
 
 	firstUpdated() {
-		if (Cookies.get('token')) {
-			this.auth = true;
-		}
+		auth.on('authStateChanged', (evt) => {
+			this.authState = evt;
+		})
 	}
 
 	static get properties() {
 		return {
-			auth: { type: Boolean }
+			authState: { type: Boolean }
 		}
 	}
 
@@ -33,7 +33,7 @@ class DgRoot extends LitElement {
 	render() {
 		return html`
 			${(() => {
-				if(this.auth) return html`
+				if(this.authState) return html`
 					<mx-sidebar>
 						<div slot="sidebar">
 							<dg-sidebar></dg-sidebar>

@@ -1,4 +1,5 @@
 import { EventEmitter } from 'events';
+// class EventEmitter {}
 import Cookies from 'js-cookie';
 
 class Auth extends EventEmitter {
@@ -10,15 +11,22 @@ class Auth extends EventEmitter {
 	}
 
 	set authState(val) {
+		console.log('setting auth state', this._authState, val)
 		if(this._authState != val) {
 			this._authState = val;
-			this.emit('authStateChanged', {data: {
-				auth: val
-			}});
+			this.emit('authStateChanged', val);
 		}
 	}
 
+	on(evt, cb) {
+		if(evt === 'authStateChanged') {
+			cb(this.authState);
+		}
+		super.on(evt, cb);
+	} 
+
 	constructor() {
+		super();
 		this.loadAuthState();
 	}
 
@@ -51,6 +59,6 @@ class Auth extends EventEmitter {
 	}
 }
 
+export default new Auth();
 
-
-module.exports = new Auth();
+// export default obj;

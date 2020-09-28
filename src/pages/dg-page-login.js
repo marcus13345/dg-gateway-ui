@@ -124,7 +124,7 @@ class DgPageLogin extends LitElement {
 						<label>${lang.password}</label>
 						<input type="password"></input>
 
-						<mx-button raised>${lang.sign_in}</mx-button>
+						<mx-button raised @click=${() => auth.login()}>${lang.sign_in}</mx-button>
 					</div>
 				</div>
 			</div>

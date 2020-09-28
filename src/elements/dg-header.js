@@ -2,9 +2,25 @@ import { LitElement, html, css, unsafeCSS } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html'
 import lang from './../i18n';
 import profileIcon from './../res/profile.jpg';
+import auth from './../lib/auth';
 
 
 class DgHeader extends LitElement {
+
+	authState = false;
+
+	firstUpdated() {
+		auth.on('authStateChanged', authState => {
+			this.authState = authState;
+		})
+	}
+
+	static get properties() {
+		return {
+			authState: { type: Boolean }
+		}
+	}
+
 	static get styles() {
 		return css`
 			:host {
@@ -18,7 +34,7 @@ class DgHeader extends LitElement {
 				height: var(--height);
 				background: white;
 				display: grid;
-				grid-template-columns: 1fr 100px 150px 48px 16px;
+				grid-template-columns: 1fr 100px min-content 48px 16px;
 			}
 
 			.title {
@@ -69,13 +85,26 @@ class DgHeader extends LitElement {
 				<span class="title">${lang.dynamic_view_minigrid_controller}</span>
 				<span class="lang">${navigator.language.toUpperCase()}</span>
 				<div class="logout">
-					<mx-button>
-						${lang.logout}
-					</mx-button>
+					${(() => {
+						if(this.authState) return html`
+							<mx-button @click=${() => auth.logout()}>
+								${lang.logout}
+							</mx-button>
+						`;
+						else return html`
+							<mx-button>
+								${lang.create_account}
+							</mx-button>
+						`;
+					})()}
 				</div>
 				<div class="profile">
-					<div class="img">
-					</div>
+					${(() => {
+						if(this.authState) return html`
+							<div class="img">
+							</div>
+						`;
+					})()}
 				</div>
 			</div>
 		`;
