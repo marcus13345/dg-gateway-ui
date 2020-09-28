@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="217px" height="268px" viewBox="0 0 217 268" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>battery casing</title>
+    <defs>
+        <filter x="-21.0%" y="-27.7%" width="142.0%" height="161.1%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="10" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="15" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.298039216   0 0 0 0 0.603921569   0 0 0 0 0.796078431  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-2" x="0" y="0" width="510" height="350" rx="20"></rect>
+        <filter x="-9.8%" y="-11.4%" width="119.6%" height="128.6%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="10" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="15" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.298039216   0 0 0 0 0.603921569   0 0 0 0 0.796078431  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M15,20 C16.1045695,20 17,20.8954305 17,22 C17,23.1045695 16.1045695,24 15,24 C13.8954305,24 13,23.1045695 13,22 C13,20.8954305 13.8954305,20 15,20 Z M15,13 C16.1045695,13 17,13.8954305 17,15 C17,16.1045695 16.1045695,17 15,17 C13.8954305,17 13,16.1045695 13,15 C13,13.8954305 13.8954305,13 15,13 Z M15,6 C16.1045695,6 17,6.8954305 17,8 C17,9.1045695 16.1045695,10 15,10 C13.8954305,10 13,9.1045695 13,8 C13,6.8954305 13.8954305,6 15,6 Z" id="path-4"></path>
+        <filter x="-12.9%" y="-12.0%" width="125.8%" height="124.0%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Retina-Std" transform="translate(-1316.000000, -287.000000)">
+            <g id="2nd-card" filter="url(#filter-1)" transform="translate(1059.000000, 267.000000)">
+                <g id="Component/Card/⚡Place/Card-Solid-Dark">
+                    <g id="Base">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                        <use fill="#132E32" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    </g>
+                    <g id="Group" transform="translate(21.000000, 116.000000)" fill="#FFFFFF" font-family="Roboto-Medium, Roboto" font-size="65" font-weight="400">
+                        <g id="Component/Card/📦Global/Light-Title">
+                            <text>
+                                <tspan x="0" y="26">63%</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <g id="Group" transform="translate(23.000000, 63.000000)" fill="#FFFFFF" font-family="Roboto-Medium, Roboto" font-size="20" font-weight="400" line-spacing="22" opacity="0.72">
+                        <g id="Component/Card/📦Global/Light-Label">
+                            <text>
+                                <tspan x="0" y="17">BATTERY PERCENTAGE</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <g id="Icon/More" transform="translate(472.000000, 16.000000)">
+                        <rect id="Grid" x="0" y="0" width="30" height="30"></rect>
+                        <mask id="mask-5" fill="white">
+                            <use xlink:href="#path-4"></use>
+                        </mask>
+                        <use id="Mask" fill="#000000" xlink:href="#path-4"></use>
+                        <g id="Group" mask="url(#mask-5)" fill="#FFFFFF">
+                            <g id="Color">
+                                <rect id="Icon/🖌-Fill/Bright" x="0" y="0" width="30" height="30"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <circle id="Oval" stroke="#979797" fill="#FFFFFF" cx="364" cy="154" r="109.5"></circle>
+                <g id="battery-casing" transform="translate(319.000000, 77.000000)" stroke="#132E32">
+                    <rect id="Rectangle-23-Copy-14" stroke-width="5" fill="#F5F5F5" stroke-linejoin="round" x="-2.22440945" y="7.90804598" width="97" height="143"></rect>
+                    <rect id="Rectangle" stroke-width="18" fill="#132E32" x="35.2755906" y="9.40804598" width="25" height="1" rx="0.5"></rect>
+                </g>
+                <g id="battery-lines" transform="translate(319.000000, 87.000000)" stroke="#5AA5E0" stroke-linecap="square">
+                    <g id="Lines">
+                        <line x1="0.292993631" y1="28.8890894" x2="92" y2="28.8890894" id="Line" stroke-width="2" opacity="0.156308302"></line>
+                        <line x1="0.292993631" y1="0.291808984" x2="92" y2="0.291808984" id="Line-Copy-6" stroke-width="2" opacity="0.156308302"></line>
+                        <line x1="0" y1="55.0059934" x2="91.1781454" y2="55.0059934" id="Line-Copy-7" stroke-width="3" opacity="0.0551539179"></line>
+                    </g>
+                    <g id="Lines" transform="translate(0.000000, 83.000000)">
+                        <line x1="0.291830215" y1="28.8890894" x2="91.3428571" y2="28.8890894" id="Line" stroke-width="2" opacity="0.156308302"></line>
+                        <line x1="0.291830215" y1="0.291808984" x2="91.3428571" y2="0.291808984" id="Line-Copy-6" stroke-width="2" opacity="0.156308302"></line>
+                        <line x1="0" y1="55.0059934" x2="90.525019" y2="55.0059934" id="Line-Copy-7" stroke-width="3" opacity="0.0551539179"></line>
+                    </g>
+                </g>
+                <g id="battery-percentage" filter="url(#filter-6)" transform="translate(319.000000, 126.000000)" fill="#1C7C54" opacity="0.665928172">
+                    <rect id="Rectangle-23-Copy-18" x="0.275590551" y="0.408045977" width="92" height="99"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
