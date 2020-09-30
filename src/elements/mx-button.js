@@ -8,6 +8,7 @@ class MxButton extends LitElement {
 				--height: 32px;
 				--outline: 2px;
 				--color: royalblue;
+				height: var(--height);
 			}
 
 			.button {

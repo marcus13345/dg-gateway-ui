@@ -64,8 +64,9 @@ class DgPageDashboard extends LitElement {
 			.card > .footer {
 				grid-area: footer;
 				display: grid;
-				place-items: center center;
+				/* place-items: center center; */
 				padding-bottom: 24px;
+				font-size: 0.67em;
 			}
 
 			.card.reversed {
@@ -137,6 +138,10 @@ class DgPageDashboard extends LitElement {
 				white-space: nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;
+			}
+
+			.status mx-button {
+				font-size: 13px;
 			}
 
 			.center {

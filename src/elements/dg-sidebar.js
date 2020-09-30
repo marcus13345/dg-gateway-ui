@@ -26,7 +26,7 @@ class DgSidebar extends LitElement {
 				box-shadow: 0px 0px 50px rgba(0, 100, 255, 0.15);
 				text-align: center;
 				font-weight: bold;
-				margin-bottom: 24px;
+				margin-bottom: 20px;
 			}
 
 			.logo svg {
@@ -41,7 +41,7 @@ class DgSidebar extends LitElement {
 				grid-template-columns: 16px 24px 16px 1fr 32px;
 				grid-template-rows: 24px;
 				opacity: 0.75;
-				margin-bottom: 30px;
+				margin-bottom: 20px;
 				font-weight: 100;
 			}
 
@@ -91,6 +91,7 @@ class DgSidebar extends LitElement {
 
 			.status {
 				margin: 16px;
+				margin-top: 35px;
 				padding: 16px;
 				background: #E6EDF1;
 				border-radius: 5px;
