@@ -32,7 +32,12 @@ const table = {
 		sign_up_now: 'Sign up now',
 		create_account: 'Create Account',
 		email: 'Email',
-		password: 'password'
+		password: 'password',
+		forgot_password: 'Forgot Password?',
+		cancel: 'Cancel',
+		submit: 'Submit',
+		sign_up: 'Sign up',
+		confirm_password: 'Confirm Password',
 	},
 	'ja': {
 		dashboard: 'ホーオ',
@@ -67,7 +72,12 @@ const table = {
 		sign_up_now: '今すぐサインアップ',
 		create_account: 'アカウントを作成する',
 		email: '電子メールアドレス',
-		password: 'パスワード'
+		password: 'パスワード',
+		forgot_password: 'パスワードをお忘れですか？',
+		cancel: 'キャンセル',
+		submit: '参加する',
+		sign_up: 'サインアップ',
+		confirm_password: 'パスワードを認証する',
 	}
 }
 

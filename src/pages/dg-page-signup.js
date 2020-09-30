@@ -1,12 +1,11 @@
 import { LitElement, html, css } from 'lit-element';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html'
 import lang from './../i18n';
-import auth from './../lib/auth';
 
-class DgPageLogin extends LitElement {
+class DgPageSignup extends LitElement {
 	static get styles() {
 		return css`
-
+			
 			.panel {
 				font-size: 13px;
 				/* font-weight: 900; */
@@ -34,7 +33,7 @@ class DgPageLogin extends LitElement {
 				color: #153034;
 			}
 
-			.signup, .forgot {
+			.signup, .cancel {
 				color: royalblue;
 				cursor: pointer;
 				margin-bottom: 16px;
@@ -82,27 +81,31 @@ class DgPageLogin extends LitElement {
 	render() {
 		return html`
 			<div class="panel">
-				<h1>${lang.sign_in}</h1>
-				<span>${lang.dont_have_an_account_yet}</span><br>
+				<h1>${lang.sign_up}</h1>
+				<!-- <span>${lang.dont_have_an_account_yet}</span><br>
 				<span
 				@click=${() => this.dispatchEvent(new CustomEvent('signup'))}
 				class="signup"
-				>${lang.sign_up_now}</span>
+				>${lang.sign_up_now}</span> -->
+
 
 				<label>${lang.email}</label>
 				<input></input>
 				
 				<label>${lang.password}</label>
 				<input type="password"></input>
+				
+				<label>${lang.confirm_password}</label>
+				<input type="password"></input>
 
-				<mx-button raised @click=${() => auth.login()}>${lang.sign_in}</mx-button>
+				<mx-button raised @click=${() => alert('something happens here')}>${lang.submit}</mx-button>
 				<span
-					class="forgot"
-					@click=${() => this.dispatchEvent(new CustomEvent('forgotPassword'))}
-					>${lang.forgot_password}</span>
+				@click=${() => this.dispatchEvent(new CustomEvent('cancel'))}
+				class="cancel"
+				>${lang.cancel}</span>
 			</div>
 		`;
 	}
 }
 
-customElements.define('dg-page-login', DgPageLogin);
+customElements.define('dg-page-signup', DgPageSignup);
