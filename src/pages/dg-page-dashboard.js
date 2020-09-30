@@ -8,16 +8,28 @@ import batteryIcon from './../res/battery-casing-redux.svg';
 
 class DgPageDashboard extends LitElement {
 
-	towerPower = Math.random() * 5;
-	towerPowerMax = (Math.random() * 5) + this.towerPower;
+	towerPower = 7;
+	towerPowerMax = 7.07;
 	get towerPowerPercent () {
 		return this.towerPower / this.towerPowerMax * 100;
 	}
 
-	batteryCharge = Math.random() * 5;
-	batteryMax = (Math.random() * 5) + this.batteryCharge;
+	batteryCharge = 36;
+	batteryMax = 80;
 	get batteryPercent () {
 		return this.batteryCharge / this.batteryMax * 100;
+	}
+	
+	generatorPower = 18;
+	generatorMax = 20;
+	get generatorPercent () {
+		return this.generatorPower / this.generatorMax * 100;
+	}
+	
+	solarPower = Math.random() * 10;
+	solarMax = this.solarPower + (Math.random() * 10);
+	get solarPercent () {
+		return this.solarPower / this.solarMax * 100;
 	}
 
 	static get styles() {
@@ -103,6 +115,14 @@ class DgPageDashboard extends LitElement {
 
 			.card:nth-child(4n + 3) {
 				background: #132E32;
+			}
+
+			.card:nth-child(4n + 3) mx-button {
+				--color: #007F41;
+			}
+			
+			.card:nth-child(4n) mx-button {
+				--color: #40003F;
 			}
 			
 			.card:nth-child(4n) {
@@ -210,7 +230,7 @@ class DgPageDashboard extends LitElement {
 		<div class="content">
 			<div class="banner">
 				<span class="status">
-					${lang.status.toUpperCase()}: ${lang.everything_is_functioning_well}
+					${lang.status.toUpperCase()}: ${lang.system_operational_no_warnings}
 				</span>
 				<div class="center">
 					<mx-button>
@@ -246,8 +266,13 @@ class DgPageDashboard extends LitElement {
 				<div class="content">
 					<h6 class="title">${lang.battery_percentage}</h6>
 					<h1>${parseInt(this.batteryPercent)}%</h1>
-					<h6>${lang.percent_of_max(this.towerPowerPercent)}</h6>
-					<h6 class="more">${lang.more} ›</h6>
+					<h6>${this.batteryCharge} KwH (${lang.charging})</h6>
+					<!-- <h6 class="more">${lang.more} ›</h6> -->
+				</div>
+				<div class="footer">
+					<mx-button raised>
+						${lang.more_details}
+					</mx-button>
 				</div>
 				<div class="icon battery">
 					<div class="backdrop">
@@ -259,9 +284,14 @@ class DgPageDashboard extends LitElement {
 			<div class="card">
 				<div class="content">
 					<h6 class="title">${lang.solar_production}</h6>
-					<h1>${this.towerPower.toFixed(1)} kW</h1>
-					<h6>${lang.percent_of_max(this.towerPowerPercent)}</h6>
-					<h6 class="more">${lang.more} ›</h6>
+					<h1>${this.solarPower.toFixed(1)} kW</h1>
+					<h6>${lang.percent_of_max(this.solarPercent)}</h6>
+					<!-- <h6 class="more">${lang.more} ›</h6> -->
+				</div>
+				<div class="footer">
+					<mx-button raised>
+						${lang.more_details}
+					</mx-button>
 				</div>
 				<div class="icon solar">
 					<div class="backdrop">
@@ -273,8 +303,8 @@ class DgPageDashboard extends LitElement {
 			<div class="card">
 				<div class="content">
 					<h6 class="title">${lang.generator_production}</h6>
-					<h1>${this.towerPower.toFixed(1)} kW</h1>
-					<h6>${lang.percent_of_max(this.towerPowerPercent)}</h6>
+					<h1>${this.generatorPower.toFixed(1)} kW</h1>
+					<h6>${lang.percent_of_max(this.generatorPercent)}</h6>
 				</div>
 				<div class="footer">
 					<mx-button raised>

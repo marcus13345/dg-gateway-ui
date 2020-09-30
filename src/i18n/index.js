@@ -38,6 +38,10 @@ const table = {
 		submit: 'Submit',
 		sign_up: 'Sign up',
 		confirm_password: 'Confirm Password',
+		todays_totals: 'Todays Totals',
+		system_operational_no_warnings: 'System operational. No warnings.',
+		system: 'System',
+		charging: 'Charging',
 	},
 	'ja': {
 		dashboard: 'ホーオ',
@@ -78,6 +82,10 @@ const table = {
 		submit: '参加する',
 		sign_up: 'サインアップ',
 		confirm_password: 'パスワードを認証する',
+		todays_totals: '今日の合計',
+		system_operational_no_warnings: 'システム運用。 警告なし。',
+		system: 'システム',
+		charging: '充電',
 	}
 }
 

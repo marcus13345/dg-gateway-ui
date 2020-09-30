@@ -12,9 +12,10 @@ import lang from './../i18n';
 
 class DgSidebar extends LitElement {
 
-	load = Math.random() * 5;
-	solar = Math.random() * 5;
-	genset = Math.random() * 5;
+	load = 77;
+	solar = 14;
+	genset = 130;
+	system = Math.random() * 50;
 
 
 	static get styles() {
@@ -166,13 +167,15 @@ class DgSidebar extends LitElement {
 			</div>
 
 			<div class="status">
-				<h3>${lang.current_status}</h3>
+				<h3>${lang.todays_totals}</h3>
 				<h6>${lang.load}</h6>
-				<h1>${this.load.toFixed(1)} kW</h1>
+				<h1>${this.load.toFixed(0)} kW</h1>
 				<h6>${lang.solar_production}</h6>
-				<h1>${this.solar.toFixed(1)} kW</h1>
+				<h1>${this.solar.toFixed(0)} kW</h1>
 				<h6>${lang.genset_production}</h6>
-				<h1>${this.genset.toFixed(1)} kW</h1>
+				<h1>${this.genset.toFixed(0)} kW</h1>
+				<h6>${lang.system}</h6>
+				<h1>${this.system.toFixed(0)} kW</h1>
 			</div>
 		`;
 	}
