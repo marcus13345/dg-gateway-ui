@@ -140,7 +140,7 @@ class DgPageDashboard extends LitElement {
 				text-overflow: ellipsis;
 			}
 
-			.status mx-button {
+			.banner mx-button {
 				font-size: 13px;
 			}
 
