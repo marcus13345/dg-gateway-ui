@@ -27,7 +27,6 @@ class DgSidebar extends LitElement {
 				box-shadow: 0px 0px 50px rgba(0, 100, 255, 0.15);
 				text-align: center;
 				font-weight: bold;
-				margin-bottom: 20px;
 			}
 
 			.logo svg {
@@ -55,6 +54,10 @@ class DgSidebar extends LitElement {
 
 			.item.selected {
 				opacity: 1;
+			}
+
+			.item.home {
+				margin-top: 20px;
 			}
 
 			.item svg {
@@ -91,11 +94,11 @@ class DgSidebar extends LitElement {
 			}
 
 			.status {
-				margin: 16px;
-				margin-top: 35px;
 				padding: 16px;
 				background: #E6EDF1;
 				border-radius: 5px;
+				width: 100%;
+				box-sizing: border-box;
 			}
 
 			h3 {
@@ -115,67 +118,105 @@ class DgSidebar extends LitElement {
 				margin: 0px;
 			}
 
+			.sidebar {
+				width: 100%;
+				height: 100vh;
+				display: grid;
+				grid-template-rows: min-content 1fr min-content;
+			}
+
+			.statusContainer {
+				padding: 16px;
+			}
+
+			.navContainer {
+				overflow: auto;
+			}
+
+				/* width */
+			::-webkit-scrollbar {
+				width: 4px;
+			}
+
+			/* Track */
+			::-webkit-scrollbar-track {
+				background: transparent;
+			}
+
+			/* Handle */
+			::-webkit-scrollbar-thumb {
+				background: #73BE1E;
+			}
+
 		`;
 	}
 
 	render() {
 		return html`
-			<div class="logo">
-				${unsafeHTML(logo)}
-			</div>
-			<div class="item home selected">
-				${unsafeHTML(homeIcon)}
-				<span>
-					${lang.dashboard}
-				</span>
-			</div>
-			<div class="item operations">
-				${unsafeHTML(operationsIcon)}
-				<span>
-					${lang.operations}
-				</span>
-			</div>
-			<div class="item forecast">
-				${unsafeHTML(forecastIcon)}
-				<span>
-					${lang.forecast}
-				</span>
-			</div>
-			<div class="item history">
-				${unsafeHTML(historyIcon)}
-				<span>
-					${lang.history}
-				</span>
-			</div>
-			<div class="item solar">
-				${unsafeHTML(solarIcon)}
-				<span>
-					${lang.solar}
-				</span>
-			</div>
-			<div class="item storage">
-				${unsafeHTML(storageIcon)}
-				<span>
-					${lang.storage}
-				</span>
-			</div>
-			<div class="item generator">
-				${unsafeHTML(generatorIcon)}
-				<span>
-					${lang.generator}
-				</span>
-			</div>
+			<div class="sidebar">
 
-			<div class="status">
-				<h3>${lang.todays_totals}</h3>
-				<h6>${lang.load}</h6>
-				<h1>${this.load.toFixed(0)} kW</h1>
-				<h6>${lang.solar_production}</h6>
-				<h1>${this.solar.toFixed(0)} kW</h1>
-				<h6>${lang.genset_production}</h6>
-				<h1>${this.genset.toFixed(0)} kW</h1>
-				<h6>${lang.system}</h6>
-				<h1>${this.system.toFixed(0)} kW</h1>
+				<div class="logo">
+					${unsafeHTML(logo)}
+				</div>
+
+				<div class="navContainer">
+					<div class="item home selected">
+						${unsafeHTML(homeIcon)}
+						<span>
+							${lang.dashboard}
+						</span>
+					</div>
+					<div class="item operations">
+						${unsafeHTML(operationsIcon)}
+						<span>
+							${lang.operations}
+						</span>
+					</div>
+					<div class="item forecast">
+						${unsafeHTML(forecastIcon)}
+						<span>
+							${lang.forecast}
+						</span>
+					</div>
+					<div class="item history">
+						${unsafeHTML(historyIcon)}
+						<span>
+							${lang.history}
+						</span>
+					</div>
+					<div class="item solar">
+						${unsafeHTML(solarIcon)}
+						<span>
+							${lang.solar}
+						</span>
+					</div>
+					<div class="item storage">
+						${unsafeHTML(storageIcon)}
+						<span>
+							${lang.storage}
+						</span>
+					</div>
+					<div class="item generator">
+						${unsafeHTML(generatorIcon)}
+						<span>
+							${lang.generator}
+						</span>
+					</div>
+				</div>
+
+				<div class="statusContainer">
+					<div class="status">
+						<h3>${lang.todays_totals}</h3>
+						<h6>${lang.load}</h6>
+						<h1>${this.load.toFixed(0)} kW</h1>
+						<h6>${lang.solar_production}</h6>
+						<h1>${this.solar.toFixed(0)} kW</h1>
+						<h6>${lang.genset_production}</h6>
+						<h1>${this.genset.toFixed(0)} kW</h1>
+						<h6>${lang.system}</h6>
+						<h1>${this.system.toFixed(0)} kW</h1>
+					</div>
+				</div>
 			</div>
 		`;
 	}

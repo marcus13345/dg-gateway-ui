@@ -40,26 +40,42 @@ class DgPageDashboard extends LitElement {
 				grid-template-columns: 5fr 1fr 5fr;
 				grid-gap: 24px;
 				padding: 24px;
-				max-width: 1024px;
+				max-width: 1280px;
 				margin: 0px auto;
 			}
 
 			.card {
-				--icon-size: 100px;
+				--icon-size: 145px;
+				--padding: 24px;
 				background: white;
 				width: 100%;
 				border-radius: 15px;
 				grid-column-end: span 2;
 				box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2), 0px 3px 5px rgba(0, 0, 0, 0.2);
 				display: grid;
-				grid-template-columns: 1fr var(--icon-size);
+				grid-template-columns: 2fr var(--icon-size);
 				grid-template-rows: 1fr min-content;
 				grid-template-areas:
 					"content icon"
 					"footer icon";
-				grid-gap: 24px;
-				padding: 0px 24px;
+				padding: 0px var(--padding);
 				box-sizing: border-box;
+			}
+			
+
+			@media only screen and (min-width: 1920px) {
+				.card {
+					--icon-size: 175px;
+					--padding: 48px;
+				}
+			}
+
+			.card.reversed {
+				grid-gap: var(--padding);
+				grid-template-columns: var(--icon-size) 2fr;
+				grid-template-areas:
+					"icon content"
+					"icon footer";
 			}
 
 			.card > .content {
@@ -70,22 +86,16 @@ class DgPageDashboard extends LitElement {
 				/* background: salmon; */
 				/* overflow: hidden; */
 				grid-area: icon;
-				padding-top: 24px;
+				padding-top: var(--padding);
+				padding-bottom: var(--padding);
 			}
 
 			.card > .footer {
 				grid-area: footer;
 				display: grid;
 				/* place-items: center center; */
-				padding-bottom: 24px;
+				padding-bottom: var(--padding);
 				font-size: 0.67em;
-			}
-
-			.card.reversed {
-				grid-template-columns: var(--icon-size) 1fr;
-				grid-template-areas:
-					"icon content"
-					"icon footer";
 			}
 
 			.card .icon .backdrop {
@@ -186,11 +196,11 @@ class DgPageDashboard extends LitElement {
 
 			.icon.battery svg {
 				transform: scale(0.45);
-				transform-origin: 48% 20%;
+				transform-origin: 50% 20%;
 			}
 
 			.card .content {
-				padding-top: 32px;
+				padding-top: calc(var(--padding) + 8px);
 			}
 
 			.card .content h6 {
