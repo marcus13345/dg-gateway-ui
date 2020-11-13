@@ -150,6 +150,9 @@ class DgPageOperations extends LitElement {
 
 	firstUpdated() {
 		this.updateNumbers();
+		setInterval(_ => {
+			this.updateNumbers();
+		}, 2000);
 	}
 
 	static get properties() {
