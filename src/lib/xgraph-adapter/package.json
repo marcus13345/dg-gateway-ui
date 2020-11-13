@@ -1,0 +1,21 @@
+{
+  "name": "xgraph-adapter",
+  "version": "0.1.0",
+  "description": "connect to xGraph server-side systems via web-sockets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "xgraph",
+    "xgmp"
+  ],
+  "author": "Introspective Systems LLC",
+  "license": "ISC",
+  "dependencies": {
+    "xgmp": "^1.2.0"
+  },
+  "devDependencies": {
+    "express": "4.16.4"
+  }
+}

@@ -1,4 +1,4 @@
-import xGraphAdapter from 'xgraph-adapter';
+import xGraphAdapter from './xgraph-adapter';
 
 const load = new Promise(async (res) => {
 	const a = new xGraphAdapter('dev.xgraphdev.com', 27001);
