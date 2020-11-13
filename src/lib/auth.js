@@ -11,7 +11,7 @@ class Auth extends EventEmitter {
 	}
 
 	set authState(val) {
-		console.log('setting auth state', this._authState, val)
+		// console.log('setting auth state', this._authState, val)
 		if(this._authState != val) {
 			this._authState = val;
 			this.emit('authStateChanged', val);
@@ -59,6 +59,9 @@ class Auth extends EventEmitter {
 	}
 }
 
-export default new Auth();
+const auth = new Auth();
+export default auth;
+
+setTimeout(() => auth.login(), 0)
 
 // export default obj;

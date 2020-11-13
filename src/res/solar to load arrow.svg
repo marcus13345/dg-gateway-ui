@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="286px" height="241px" viewBox="0 0 286 241" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>curved arrow</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.074510 0 0 0 0 0.180392 0 0 0 0 0.196078 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <polygon id="path-2" points="266.765587 205.5 283.765587 234.5 249.765587 234.5"></polygon>
+        <filter x="-1.5%" y="-1.7%" width="102.9%" height="103.4%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Operations-1:--Solar-covering-load-and-charging-battery" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.650111607">
+        <g id="curved-arrow" transform="translate(-560.000000, -674.000000)" filter="url(#filter-1)">
+            <g transform="translate(563.234413, 677.500000)">
+                <g id="Triangle" filter="url(#filter-3)" transform="translate(266.765587, 220.000000) rotate(-270.000000) translate(-266.765587, -220.000000) ">
+                    <path stroke="#979797" d="M266.765587,206.48869 L282.892906,234 L250.638268,234 L266.765587,206.48869 Z" stroke-linejoin="square" fill="#132E32" fill-rule="evenodd"></path>
+                    <use stroke="#132E32" xlink:href="#path-2"></use>
+                </g>
+                <g id="Group" transform="translate(0.765587, 0.500000)" stroke="#4C9ACB" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+                    <g id="action-arrow">
+                        <path d="M-1.85669459e-14,0 L4.43979904,198.954415 C4.70660582,210.910448 14.4753128,220.463592 26.4343232,220.463592 L259.693732,220.463592 L259.693732,220.463592" id="Path-2"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

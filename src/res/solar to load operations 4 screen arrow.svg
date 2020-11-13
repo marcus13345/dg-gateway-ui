@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="214px" height="192px" viewBox="0 0 214 192" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>straight arrow</title>
+    <defs>
+        <circle id="path-1" cx="110" cy="110" r="110"></circle>
+        <ellipse id="path-3" cx="104.84446" cy="105.191257" rx="104.84446" ry="105.191257"></ellipse>
+        <filter id="filter-5">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.074510 0 0 0 0 0.180392 0 0 0 0 0.196078 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <polygon id="path-6" points="233.336287 2.87706843 250.336287 31.8770684 216.336287 31.8770684"></polygon>
+        <filter x="-1.5%" y="-1.7%" width="102.9%" height="103.4%" filterUnits="objectBoundingBox" id="filter-7">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-1.7%" y="-150.0%" width="103.6%" height="405.4%" filterUnits="objectBoundingBox" id="filter-8">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Operations-4:--Generator-covering-load-and-charging-battery-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Retina-Std" transform="translate(-654.000000, -616.000000)">
+            <g id="Load" transform="translate(447.000000, 768.000000)">
+                <g id="cell-tower-white" transform="translate(411.000000, 0.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#1C7C54" xlink:href="#path-1"></use>
+                </g>
+            </g>
+            <g id="Battery" transform="translate(857.000000, 270.000000)" fill="#FFFFFF">
+                <circle id="Oval" cx="110" cy="257" r="110"></circle>
+            </g>
+            <g id="Solar" transform="translate(466.000000, 270.000000)">
+                <g transform="translate(3.000000, 147.071038)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <use id="Mask" fill="#FFFFFF" xlink:href="#path-3"></use>
+                </g>
+            </g>
+            <g filter="url(#filter-5)" id="straight-arrow" opacity="0.650018601">
+                <g transform="translate(761.760413, 712.656063) rotate(-319.000000) translate(-761.760413, -712.656063) translate(637.760413, 695.156063)">
+                    <g id="Triangle" filter="url(#filter-7)" transform="translate(233.336287, 17.377068) rotate(-270.000000) translate(-233.336287, -17.377068) ">
+                        <path stroke="#979797" d="M233.336287,3.8657588 L249.463606,31.3770684 L217.208967,31.3770684 L233.336287,3.8657588 Z" stroke-linejoin="square" fill="#132E32" fill-rule="evenodd"></path>
+                        <use stroke="#132E32" xlink:href="#path-6"></use>
+                    </g>
+                    <line x1="218.836287" y1="17.3770684" x2="1.07768916" y2="17.4844026" id="Line" stroke="#132E32" stroke-width="8" fill="#D8D8D8" stroke-linecap="round" filter="url(#filter-8)"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

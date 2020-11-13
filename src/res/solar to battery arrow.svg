@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="36px" viewBox="0 0 150 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Operations 1:  Solar covering load and charging battery</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.074510 0 0 0 0 0.180392 0 0 0 0 0.196078 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <polygon id="path-2" points="131.5 3.12402344 148.5 32.1240234 114.5 32.1240234"></polygon>
+        <filter x="-1.5%" y="-1.7%" width="102.9%" height="103.4%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-3.4%" y="-150.0%" width="106.8%" height="400.0%" filterUnits="objectBoundingBox" id="filter-4">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Operations-1:--Solar-covering-load-and-charging-battery" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Retina-Std" transform="translate(-696.000000, -530.000000)">
+            <g id="Solar" transform="translate(459.000000, 269.000000)"></g>
+            <g filter="url(#filter-1)" id="straight-arrow" opacity="0.650018601">
+                <g transform="translate(700.000000, 530.375977)">
+                    <g id="Triangle" filter="url(#filter-3)" transform="translate(131.500000, 17.624023) rotate(-270.000000) translate(-131.500000, -17.624023) ">
+                        <path stroke="#979797" d="M131.5,4.11271381 L147.627319,31.6240234 L115.372681,31.6240234 L131.5,4.11271381 Z" stroke-linejoin="square" fill="#132E32" fill-rule="evenodd"></path>
+                        <use stroke="#132E32" xlink:href="#path-2"></use>
+                    </g>
+                    <line x1="117" y1="17.6240234" x2="-2.13110779e-14" y2="17.6240234" id="Line" stroke="#132E32" stroke-width="8" fill="#D8D8D8" stroke-linecap="round" filter="url(#filter-4)"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

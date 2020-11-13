@@ -2,7 +2,7 @@ import { LitElement, html, css, unsafeCSS } from 'lit-element';
 import auth from './../lib/auth';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import dgLogo from './../res/DG-logos-01.svg';
-import { LOGIN, DASHBOARD, RESET, SIGNUP } from './../lib/pages';
+import { LOGIN, DASHBOARD, OPERATIONS, RESET, SIGNUP } from './../lib/pages';
 import background from './../res/dynamic grid backgrounds_transparent 12% (1).png';
 
 class DgRoot extends LitElement {
@@ -13,6 +13,7 @@ class DgRoot extends LitElement {
 	firstUpdated() {
 		auth.on('authStateChanged', (evt) => {
 			this.authState = evt;
+			if(evt) this.page = OPERATIONS;
 		})
 	}
 
@@ -83,9 +84,23 @@ class DgRoot extends LitElement {
 						</div>
 						<div slot="content">
 							<dg-header></dg-header>
-							<dg-page-dashboard>
+							${(() => {
+								switch (this.page) {
+									case DASHBOARD: {
+										return html`
+											<dg-page-dashboard
+											></dg-page-dashboard>
+										`;
+									}
+									case OPERATIONS: {
+										return html`
+											<dg-page-operations
+											></dg-page-operations>
+										`;
+									}
+								}
+							})()}
 
-							</dg-page-dashboard>
 						</div>
 					</mx-sidebar>
 				`;

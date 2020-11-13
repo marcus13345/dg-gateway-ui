@@ -31,16 +31,6 @@ class Sidebar extends LitElement {
 		`;
 	}
 
-	// static get properties() {
-	// 	return {
-	// 		hidden: { type: Boolean }
-	// 	}
-	// }
-	
-	updated(a, b, c) {
-		console.log(a, b, c)
-	}
-
 	render() {
 		return html`
 			<div class="grid">

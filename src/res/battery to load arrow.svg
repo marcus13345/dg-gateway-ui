@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="85px" viewBox="0 0 36 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>straight arrow</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.074510 0 0 0 0 0.180392 0 0 0 0 0.196078 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <polygon id="path-2" points="65.5 3.12402344 82.5 32.1240234 48.5 32.1240234"></polygon>
+        <filter x="-1.5%" y="-1.7%" width="102.9%" height="103.4%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-7.6%" y="-156.2%" width="115.4%" height="406.2%" filterUnits="objectBoundingBox" id="filter-4">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Operations-2:--Solar-paritally-covering-load,-battery-covering-the-rest" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.650018601">
+        <g id="straight-arrow" transform="translate(-967.000000, -670.000000)" filter="url(#filter-1)">
+            <g transform="translate(985.000000, 713.875977) rotate(90.000000) translate(-985.000000, -713.875977) translate(945.000000, 696.375977)">
+                <g id="Triangle" filter="url(#filter-3)" transform="translate(65.500000, 17.624023) rotate(-270.000000) translate(-65.500000, -17.624023) ">
+                    <path stroke="#979797" d="M65.5,4.11271381 L81.6273194,31.6240234 L49.3726806,31.6240234 L65.5,4.11271381 Z" stroke-linejoin="square" fill="#132E32" fill-rule="evenodd"></path>
+                    <use stroke="#132E32" xlink:href="#path-2"></use>
+                </g>
+                <line x1="51" y1="17.6240234" x2="0.124023437" y2="17.5" id="Line" stroke="#132E32" stroke-width="8" fill="#D8D8D8" stroke-linecap="round" filter="url(#filter-4)"></line>
+            </g>
+        </g>
+    </g>
+</svg>
