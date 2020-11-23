@@ -9,6 +9,10 @@ import storageIcon from './../res/operations.svg';
 import generatorIcon from './../res/Dynamic Grid icons-genset.svg';
 import logo from './../res/DG-logos-01.svg';
 import lang from './../i18n';
+import {
+	OPERATIONS,
+	DASHBOARD
+} from './../lib/pages';
 
 class DgSidebar extends LitElement {
 
@@ -43,6 +47,7 @@ class DgSidebar extends LitElement {
 				opacity: 0.75;
 				margin-bottom: 20px;
 				font-weight: 100;
+				cursor: pointer;
 			}
 
 			.item:not(.selected)::after {
@@ -151,6 +156,12 @@ class DgSidebar extends LitElement {
 		`;
 	}
 
+	static get properties() {
+		return {
+			selected: { type: String }
+		}
+	}
+
 	render() {
 		return html`
 			<div class="sidebar">
@@ -160,13 +171,17 @@ class DgSidebar extends LitElement {
 				</div>
 
 				<div class="navContainer">
-					<div class="item home selected">
+					<div class="item home ${
+						this.selected === DASHBOARD ? 'selected' : ''
+					}" @click=${() => this.dispatchEvent(new CustomEvent('navigate', {detail: DASHBOARD}))}>
 						${unsafeHTML(homeIcon)}
 						<span>
 							${lang.dashboard}
 						</span>
 					</div>
-					<div class="item operations">
+					<div class="item operations ${
+						this.selected === OPERATIONS ? 'selected' : ''
+					}" @click=${() => this.dispatchEvent(new CustomEvent('navigate', {detail: OPERATIONS}))}>
 						${unsafeHTML(operationsIcon)}
 						<span>
 							${lang.operations}

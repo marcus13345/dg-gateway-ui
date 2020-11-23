@@ -13,7 +13,7 @@ class DgRoot extends LitElement {
 	firstUpdated() {
 		auth.on('authStateChanged', (evt) => {
 			this.authState = evt;
-			if(evt) this.page = OPERATIONS;
+			if(evt) this.page = DASHBOARD;
 		})
 	}
 
@@ -80,7 +80,7 @@ class DgRoot extends LitElement {
 				if(this.authState) return html`
 					<mx-sidebar>
 						<div slot="sidebar">
-							<dg-sidebar></dg-sidebar>
+							<dg-sidebar selected=${this.page} @navigate=${(evt) => this.page = evt.detail}></dg-sidebar>
 						</div>
 						<div slot="content">
 							<dg-header></dg-header>

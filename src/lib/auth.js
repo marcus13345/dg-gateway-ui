@@ -62,6 +62,6 @@ class Auth extends EventEmitter {
 const auth = new Auth();
 export default auth;
 
-setTimeout(() => auth.login(), 0)
+// setTimeout(() => auth.login(), 0)
 
 // export default obj;
