@@ -36,7 +36,7 @@ class DgPageOperations extends LitElement {
 			}
 			
 			.icon {
-				width: 100px;
+				width: 116px;
 			}
 
 			.header {
@@ -71,8 +71,16 @@ class DgPageOperations extends LitElement {
 				width: 800px;
 				height: 600px;
 				position: relative;
+				background: white;
+				margin: 24px;
+				border-radius: 15px;
+				padding: 32px;
+				box-shadow: 0px 5px 7px rgba(0, 0, 0, .2);
 			}
 
+			.canvas {
+				position: absolute;
+			}
 
 			/* ICONS */
 			.icon.solar svg {
@@ -100,8 +108,8 @@ class DgPageOperations extends LitElement {
 			/* PLACEMENTS */
 			.icon.solar {
 				position: absolute;
-				top: 100px;
-				left: 50px;
+				top: 120px;
+				left: 42px;
 			}
 
 			.header.solar {
@@ -112,8 +120,8 @@ class DgPageOperations extends LitElement {
 
 			.icon.battery {
 				position: absolute;
-				top: 100px;
-				left: 350px;
+				top: 120px;
+				left: 342px;
 			}
 
 			.header.battery {
@@ -124,8 +132,8 @@ class DgPageOperations extends LitElement {
 
 			.icon.generator {
 				position: absolute;
-				top: 100px;
-				left: 650px;
+				top: 120px;
+				left: 642px;
 			}
 
 			.header.generator {
@@ -136,8 +144,8 @@ class DgPageOperations extends LitElement {
 
 			.icon.load {
 				position: absolute;
-				top: 400px;
-				left: 350px;
+				top: 380px;
+				left: 342px;
 			}
 
 			.header.load {
@@ -186,78 +194,80 @@ class DgPageOperations extends LitElement {
 		return html`
 		<div class="center">
 			<div class="root">
+				<div class="canvas">
 
-				<div class="header solar">
-					<b>SOLAR</b><br>
-					${
-						this.solar < 0 ?
-							'SUPPLYING POWER' + (this.solarChargingBattery ? ' & CHARGING BATTERY' : '') :
-							'NOT IN USE'
-					}<br>
-					<span class="colorText">${this.solar}</span> <span class="smol">generated today</span>
-				</div>
-				<div class="icon solar">
-					<div class="backdrop">
-						${unsafeHTML(solarIcon)}
+					<div class="header solar">
+						<b>SOLAR</b><br>
+						${
+							this.solar < 0 ?
+								'SUPPLYING POWER' + (this.solarChargingBattery ? ' & CHARGING BATTERY' : '') :
+								'NOT IN USE'
+						}<br>
+						<span class="colorText">${this.solar}</span> <span class="smol">generated today</span>
 					</div>
-				</div>
-
-				<div class="header battery">
-					<b>BATTERY</b><br>
-					${
-						this.charging > 0 ?
-							'CHARGING' :
-							this.charging < 0 ?
-							'DISCHARGING' : 
-							'NEUTRAL'
-					}<br>
-					<span class="colorText">${this.charging}</span> <span class="smol">charging</span>
-				</div>
-				<div class="icon battery">
-					<div class="backdrop">
-						${unsafeHTML(batteryIcon)}
+					<div class="icon solar">
+						<div class="backdrop">
+							${unsafeHTML(solarIcon)}
+						</div>
 					</div>
-				</div>
 
-				<div class="header generator">
-					<b>GENERATOR</b><br>
-					${
-						this.generator < 0 ?
-							'SUPPLYING POWER' + (this.generatorChargingBattery ? ' & CHARGING BATTERY' : '') :
-							'NOT IN USE'
-					}<br>
-					<span class="colorText">${this.generator}</span> <span class="smol">generated today</span>
-				</div>
-				<div class="icon generator">
-					<div class="backdrop">
-						${unsafeHTML(generatorIcon)}
+					<div class="header battery">
+						<b>BATTERY</b><br>
+						${
+							this.charging > 0 ?
+								'CHARGING' :
+								this.charging < 0 ?
+								'DISCHARGING' : 
+								'NEUTRAL'
+						}<br>
+						<span class="colorText">${this.charging}</span> <span class="smol">charging</span>
 					</div>
-				</div>
+					<div class="icon battery">
+						<div class="backdrop">
+							${unsafeHTML(batteryIcon)}
+						</div>
+					</div>
 
-				<div class="header load">
-					<b>LOAD</b><br>
-					POWERED BY ${(() => {
-						const battery = this.charging < 0;
-						const solar = this.solar < 0;
-						const gen = this.generator < 0;
-						
-						let stuff = [];
-						if(battery) stuff.push('BATTERY');
-						if(solar) stuff.push('SOLAR');
-						if(gen) stuff.push('GENERATOR');
+					<div class="header generator">
+						<b>GENERATOR</b><br>
+						${
+							this.generator < 0 ?
+								'SUPPLYING POWER' + (this.generatorChargingBattery ? ' & CHARGING BATTERY' : '') :
+								'NOT IN USE'
+						}<br>
+						<span class="colorText">${this.generator}</span> <span class="smol">generated today</span>
+					</div>
+					<div class="icon generator">
+						<div class="backdrop">
+							${unsafeHTML(generatorIcon)}
+						</div>
+					</div>
 
-						if(stuff.length === 0) return 'NOTHING';
+					<div class="header load">
+						<b>LOAD</b><br>
+						POWERED BY ${(() => {
+							const battery = this.charging < 0;
+							const solar = this.solar < 0;
+							const gen = this.generator < 0;
+							
+							let stuff = [];
+							if(battery) stuff.push('BATTERY');
+							if(solar) stuff.push('SOLAR');
+							if(gen) stuff.push('GENERATOR');
 
-						// this bullshit takes a list of things and comma separates them, wit han and
-						// so long as the things dont have a - (dash)
-						return stuff.join(', ').split(' ').reverse().join(' ').replace(',', '-AND').split(' ').reverse().join(' ').replace('-', ' ');
+							if(stuff.length === 0) return 'NOTHING';
 
-					})()}<br>
-					<span class="colorText">${this.load}</span> <span class="smol">used today</span>
-				</div>
-				<div class="icon invert load">
-					<div class="backdrop">
-						${unsafeHTML(towerIcon)}
+							// this bullshit takes a list of things and comma separates them, wit han and
+							// so long as the things dont have a - (dash)
+							return stuff.join(', ').split(' ').reverse().join(' ').replace(',', '-AND').split(' ').reverse().join(' ').replace('-', ' ');
+
+						})()}<br>
+						<span class="colorText">${this.load}</span> <span class="smol">used today</span>
+					</div>
+					<div class="icon invert load">
+						<div class="backdrop">
+							${unsafeHTML(towerIcon)}
+						</div>
 					</div>
 				</div>
 
