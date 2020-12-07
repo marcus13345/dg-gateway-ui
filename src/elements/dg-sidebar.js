@@ -11,7 +11,10 @@ import logo from './../res/DG-logos-01.svg';
 import lang from './../i18n';
 import {
 	OPERATIONS,
-	DASHBOARD
+	DASHBOARD,
+	SOLAR,
+	STORAGE,
+	GENERATOR
 } from './../lib/pages';
 
 class DgSidebar extends LitElement {
@@ -199,19 +202,25 @@ class DgSidebar extends LitElement {
 							${lang.history}
 						</span>
 					</div>
-					<div class="item solar">
+					<div class="item solar ${
+						this.selected === SOLAR ? 'selected' : ''
+					}" @click=${() => this.dispatchEvent(new CustomEvent('navigate', {detail: SOLAR}))}>
 						${unsafeHTML(solarIcon)}
 						<span>
 							${lang.solar}
 						</span>
 					</div>
-					<div class="item storage">
+					<div class="item storage ${
+						this.selected === STORAGE ? 'selected' : ''
+					}" @click=${() => this.dispatchEvent(new CustomEvent('navigate', {detail: STORAGE}))}>
 						${unsafeHTML(storageIcon)}
 						<span>
 							${lang.storage}
 						</span>
 					</div>
-					<div class="item generator">
+					<div class="item generator ${
+						this.selected === GENERATOR ? 'selected' : ''
+					}" @click=${() => this.dispatchEvent(new CustomEvent('navigate', {detail: GENERATOR}))}>
 						${unsafeHTML(generatorIcon)}
 						<span>
 							${lang.generator}

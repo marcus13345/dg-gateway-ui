@@ -2,7 +2,16 @@ import { LitElement, html, css, unsafeCSS } from 'lit-element';
 import auth from './../lib/auth';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import dgLogo from './../res/DG-logos-01.svg';
-import { LOGIN, DASHBOARD, OPERATIONS, RESET, SIGNUP } from './../lib/pages';
+import {
+	LOGIN,
+	DASHBOARD,
+	OPERATIONS,
+	RESET,
+	SIGNUP,
+	SOLAR,
+	STORAGE,
+	GENERATOR
+} from './../lib/pages';
 import background from './../res/dynamic grid backgrounds_transparent 12% (1).png';
 
 class DgRoot extends LitElement {
@@ -17,10 +26,15 @@ class DgRoot extends LitElement {
 		})
 	}
 
+	setStatus(evt) {
+		this.status = evt.detail;
+	}
+
 	static get properties() {
 		return {
 			authState: { type: Boolean },
-			page: { type: String }
+			page: { type: String },
+			status: { type: String }
 		}
 	}
 
@@ -66,6 +80,7 @@ class DgRoot extends LitElement {
 			.logo {
 				display: grid;
 				place-items: center center;
+				height: 48px;
 			}
 
 			.logo svg {
@@ -83,19 +98,42 @@ class DgRoot extends LitElement {
 							<dg-sidebar selected=${this.page} @navigate=${(evt) => this.page = evt.detail}></dg-sidebar>
 						</div>
 						<div slot="content">
-							<dg-header></dg-header>
+							<dg-header status=${this.status} ></dg-header>
 							${(() => {
 								switch (this.page) {
 									case DASHBOARD: {
 										return html`
 											<dg-page-dashboard
+											@status=${this.setStatus.bind(this)}
 											></dg-page-dashboard>
 										`;
 									}
 									case OPERATIONS: {
 										return html`
 											<dg-page-operations
+											@status=${this.setStatus.bind(this)}
 											></dg-page-operations>
+										`;
+									}
+									case STORAGE: {
+										return html`
+											<dg-page-storage
+											@status=${this.setStatus.bind(this)}
+											></dg-page-storage>
+										`;
+									}
+									case SOLAR: {
+										return html`
+											<dg-page-solar
+											@status=${this.setStatus.bind(this)}
+											></dg-page-solar>
+										`;
+									}
+									case GENERATOR: {
+										return html`
+											<dg-page-generator
+											@status=${this.setStatus.bind(this)}
+											></dg-page-generator>
 										`;
 									}
 								}
@@ -122,6 +160,7 @@ class DgRoot extends LitElement {
 												<dg-page-login
 												@signup=${(evt) => this.page = SIGNUP}
 												@forgotPassword=${(evt) => this.page = RESET}
+												@status=${this.setStatus.bind(this)}
 												></dg-page-login>
 											`;
 										}
@@ -130,6 +169,7 @@ class DgRoot extends LitElement {
 												<dg-page-forgot-password
 												@signup=${(evt) => this.page = SIGNUP}
 												@cancel=${(evt) => this.page = LOGIN}
+												@status=${this.setStatus.bind(this)}
 												></dg-page-forgot-password>
 											`;
 										}
@@ -138,6 +178,7 @@ class DgRoot extends LitElement {
 												<dg-page-signup
 												@signup=${(evt) => this.page = SIGNUP}
 												@cancel=${(evt) => this.page = LOGIN}
+												@status=${this.setStatus.bind(this)}
 												></dg-page-signup>
 											`;
 										}

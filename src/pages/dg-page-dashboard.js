@@ -54,7 +54,7 @@ class DgPageDashboard extends LitElement {
 				box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2), 0px 3px 5px rgba(0, 0, 0, 0.2);
 				display: grid;
 				grid-template-columns: 2fr var(--icon-size);
-				grid-template-rows: 1fr min-content;
+				grid-template-rows: min-content;
 				grid-template-areas:
 					"content icon"
 					"footer icon";
@@ -113,50 +113,35 @@ class DgPageDashboard extends LitElement {
 			}
 
 			
-			.card:nth-child(4n) .icon svg,
-			.card:nth-child(4n) .icon svg path {
+			.card:nth-child(4n - 1) .icon svg,
+			.card:nth-child(4n - 1) .icon svg path {
 				fill: #1C7C54 !important;
 			}
 
-			.card:nth-child(4n),
-			.card:nth-child(4n + 3) {
+			.card:nth-child(4n - 1),
+			.card:nth-child(4n + 2) {
 				grid-column-end: span 1;
 			}
 
-			.card:nth-child(4n + 3) {
+			.card:nth-child(4n + 2) {
 				background: #132E32;
 			}
 
-			.card:nth-child(4n + 3) mx-button {
+			.card:nth-child(4n + 2) mx-button {
 				--color: #007F41;
 			}
 			
-			.card:nth-child(4n) mx-button {
+			.card:nth-child(4n - 1) mx-button {
 				--color: #40003F;
 			}
 			
-			.card:nth-child(4n) {
+			.card:nth-child(4n - 1) {
 				background: #1C7C54;
 			}
 			
-			.card:nth-child(4n) .icon .backdrop,
-			.card:nth-child(4n + 3) .icon .backdrop {
+			.card:nth-child(4n - 1) .icon .backdrop,
+			.card:nth-child(4n + 2) .icon .backdrop {
 				background: white;
-			}
-
-			.banner {
-				/* box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05), -3px -3px 5px rgba(255, 255, 255, 0.8); */
-				border-radius: 15px;
-				background: white;
-				margin-top: 32px;
-				grid-column: 1 / span 3;
-				height: 50px;
-				display: grid;
-				grid-template-columns: 1fr min-content min-content;
-				padding: 0px 16px;
-				grid-gap: 16px;
-				box-sizing: border-box;
-				white-space: nowrap;
 			}
 
 			mx-button {
@@ -168,10 +153,6 @@ class DgPageDashboard extends LitElement {
 				white-space: nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;
-			}
-
-			.banner mx-button {
-				font-size: 13px;
 			}
 
 			.center {
@@ -226,33 +207,25 @@ class DgPageDashboard extends LitElement {
 				font-weight: 500;
 			}
 			
-			.card:nth-child(4n) .content h6,
-			.card:nth-child(4n) .content h1,
-			.card:nth-child(4n + 3) .content h6,
-			.card:nth-child(4n + 3) .content h1 {
+			.card:nth-child(4n - 1) .content h6,
+			.card:nth-child(4n - 1) .content h1,
+			.card:nth-child(4n + 2) .content h6,
+			.card:nth-child(4n + 2) .content h1 {
 				color: white;
 			}
 		`;
 	}
 
+	firstUpdated() {
+		this.dispatchEvent(new CustomEvent('status', {
+			detail: `${lang.status.toUpperCase()}: ${lang.system_operational_no_warnings}`,
+			bubbles: true,
+		}))
+	}
+
 	render() {
 		return html`
 		<div class="content">
-			<div class="banner">
-				<span class="status">
-					${lang.status.toUpperCase()}: ${lang.system_operational_no_warnings}
-				</span>
-				<div class="center">
-					<mx-button>
-						${lang.yesterday}
-					</mx-button>
-				</div>
-				<div class="center">
-					<mx-button raised>
-						${lang.this_week}
-					</mx-button>
-				</div>
-			</div>
 
 			<div class="card reversed">
 				<div class="content">

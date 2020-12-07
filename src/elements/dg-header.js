@@ -17,7 +17,8 @@ class DgHeader extends LitElement {
 
 	static get properties() {
 		return {
-			authState: { type: Boolean }
+			authState: { type: Boolean },
+			status: { type: String }
 		}
 	}
 
@@ -31,14 +32,15 @@ class DgHeader extends LitElement {
 			}
 
 			.root {
-				height: var(--height);
-				background: white;
+				height: var(--height * 2);
 				display: grid;
 				grid-template-columns: 1fr 100px min-content 48px 16px;
+				grid-template-rows: var(--height) var(--height);
 			}
 
 			.title {
 				line-height: var(--height);
+				background: white;
 				padding-left: 16px;
 				white-space: nowrap;
 				overflow: hidden;
@@ -46,6 +48,7 @@ class DgHeader extends LitElement {
 			}
 
 			.lang {
+				background: white;
 				font-weight: bold;
 				line-height: var(--height);
 				/* background: salmon; */
@@ -53,6 +56,7 @@ class DgHeader extends LitElement {
 			}
 
 			.logout {
+				background: white;
 				/* background: aquamarine; */
 				display: grid;
 				place-items: center center;
@@ -63,6 +67,7 @@ class DgHeader extends LitElement {
 			}
 
 			.profile {
+				background: white;
 				display: grid;
 				place-items: center center;
 			}
@@ -75,6 +80,17 @@ class DgHeader extends LitElement {
 				background-position: 746px -61px;
 				border-radius: 16px;
 				cursor: pointer;
+			}
+
+			.status {
+				grid-column: 1 / 5;
+				background: #D2E1E1;
+				line-height: var(--height);
+				padding-left: 16px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				font-size: 16px;
 			}
 		`;
 	}
@@ -105,6 +121,9 @@ class DgHeader extends LitElement {
 							</div>
 						`;
 					})()}
+				</div>
+				<div class="status">
+					${this.status}
 				</div>
 			</div>
 		`;

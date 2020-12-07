@@ -4,6 +4,20 @@ import solarIcon from './../res/Dynamic Grid icons-grid.svg';
 import batteryIcon from './../res/battery-casing-redux.svg';
 import generatorIcon from './../res/new-generator.svg';
 import towerIcon from './../res/tower.svg';
+import miniSolarSvg from './../res/minisolar.svg';
+import miniGeneratorSvg from './../res/minigenerator.svg';
+import miniChargingSvg from './../res/charging.svg';
+
+const miniCharging = html`<span class="mini">
+	${unsafeHTML(miniChargingSvg)}
+</span>`
+const miniSolar = html`<span class="mini">
+	${unsafeHTML(miniSolarSvg)}
+</span>`
+const miniGenerator = html`<span class="mini">
+	${unsafeHTML(miniGeneratorSvg)}
+</span>`
+
 import {
 	getLoad,
 	getSolar,
@@ -16,6 +30,11 @@ import {
 class DgPageOperations extends LitElement {
 	static get styles() {
 		return css`
+
+			.mini svg {
+				width: 16px;
+				height: 16px;
+			}
 
 			b {
 				font-size: 1.2em;
@@ -153,6 +172,14 @@ class DgPageOperations extends LitElement {
 				top: 520px;
 				left: 300px;
 			}
+
+			.arrow {
+				border-top: 5px dashed #1C7C54;
+				animation: border-dance 4s infinite linear;
+				width: 100px;
+				height: 5px;
+				position: absolute;
+			}
 		`;
 	}
 
@@ -196,6 +223,26 @@ class DgPageOperations extends LitElement {
 			<div class="root">
 				<div class="canvas">
 
+					<div class="arrow" ?hidden=${(() => {
+						return !(this.solar < 0 && this.charging > 0);
+					})()} style="top: 170px; left: 190px; width: 150px;"></div>
+
+					<div class="arrow" ?hidden=${(() => {
+						return !(this.generator < 0 && this.charging > 0);
+					})()} style="top: 170px; left: 460px; width: 150px;"></div>
+					
+					<div class="arrow" ?hidden=${(() => {
+						return !(this.solar < 0);
+					})()} style="top: 300px; left: 150px; width: 200px; transform: rotate(42deg);"></div>
+					
+					<div class="arrow" ?hidden=${(() => {
+						return !(this.generator < 0);
+					})()} style="top: 300px; left: 450px; width: 200px; transform: rotate(-42deg);"></div>
+					
+					<div class="arrow" ?hidden=${(() => {
+						return !(this.charging < 0);
+					})()} style="top: 300px; left: 347px; width: 100px; transform: rotate(90deg);"></div>
+
 					<div class="header solar">
 						<b>SOLAR</b><br>
 						${
@@ -215,7 +262,7 @@ class DgPageOperations extends LitElement {
 						<b>BATTERY</b><br>
 						${
 							this.charging > 0 ?
-								'CHARGING' :
+								html`${miniCharging} CHARGING` :
 								this.charging < 0 ?
 								'DISCHARGING' : 
 								'NEUTRAL'
@@ -257,9 +304,18 @@ class DgPageOperations extends LitElement {
 
 							if(stuff.length === 0) return 'NOTHING';
 
-							// this bullshit takes a list of things and comma separates them, wit han and
-							// so long as the things dont have a - (dash)
-							return stuff.join(', ').split(' ').reverse().join(' ').replace(',', '-AND').split(' ').reverse().join(' ').replace('-', ' ');
+							// this bullshit takes a list of things and comma separates them with an 'and'
+							// (so long as the things dont have a '-' (dash))
+							let text = stuff.join(', ').split(' ').reverse().join(' ').replace(',', '-AND').split(' ').reverse().join(' ').replace('-', ' ');
+							
+							if(!battery && !solar && !gen) return text;
+							else {
+								text = html`${text}<br>`;
+								if(battery) text = html`${text}${miniCharging}`;
+								if(solar) text = html`${text}${miniSolar}`;
+								if(gen) text = html`${text}${miniGenerator}`;
+								return text;
+							}
 
 						})()}<br>
 						<span class="colorText">${this.load}</span> <span class="smol">used today</span>

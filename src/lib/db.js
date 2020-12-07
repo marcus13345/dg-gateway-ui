@@ -23,12 +23,14 @@ async function getSolar() {
 async function getGenerator() {
 	return await new Promise(res => {
 		generator.send('GetState', {}, (err, cmd) => {
+			// res(Math.floor((Math.random() - 0.5) * 1000));
 			res(cmd.state.current);
 		});
 	});
 }
 
 async function getCharging() {
+	// return 1000;
 	return -(await getLoad() + await getSolar() + await getGenerator());
 }
 
