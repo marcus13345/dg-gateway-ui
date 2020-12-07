@@ -252,7 +252,7 @@ class DgPageOperations extends LitElement {
 								'SUPPLYING POWER' + (this.solarChargingBattery ? ' & CHARGING BATTERY' : '') :
 								'NOT IN USE'
 						}<br>
-						<span class="colorText">${(this.solar/1000).toFixed(2)}</span> <span class="">kW generated today</span>
+						<span class="colorText">${(this.solar/-1000).toFixed(2)}</span> <span class="">kW generated today</span>
 					</div>
 					<div class="icon solar">
 						<div class="backdrop">
