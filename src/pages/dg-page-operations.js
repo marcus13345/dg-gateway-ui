@@ -214,7 +214,7 @@ class DgPageOperations extends LitElement {
 		this.solar = await getSolar();
 		this.generator = await getGenerator();
 		this.charging = await getCharging();
-		this.chargeLevel = Math.floor(await getCharging() / 200);
+		this.chargeLevel = Math.abs(Math.floor(await getCharging() / 200));
 		this.solarChargingBattery = await getSolarChargingBattery();
 		this.generatorChargingBattery = await getGeneratorChargingBattery();
 	}

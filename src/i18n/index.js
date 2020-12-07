@@ -19,7 +19,7 @@ const table = {
 		yesterday: 'Yesterday',
 		this_week: 'This Week',
 		tower_operations: 'Tower Operations',
-		battery_percentage: 'Battery Percentage',
+		battery_percentage: 'Charge Level',
 		solar_production: 'Solar Production',
 		generator_production: 'Generator Production',
 		hours_until_sunset: (x) => `${x} hours until sunset`,
