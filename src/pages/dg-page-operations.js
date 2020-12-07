@@ -205,6 +205,7 @@ class DgPageOperations extends LitElement {
 	solar = 0;
 	generator = 0;
 	charging = 0;
+	chargeLevel = 0;
 	solarChargingBattery = false;
 	generatorChargingBattery = false;;
 
@@ -213,6 +214,7 @@ class DgPageOperations extends LitElement {
 		this.solar = await getSolar();
 		this.generator = await getGenerator();
 		this.charging = await getCharging();
+		this.chargeLevel = Math.floor(await getCharging() / 200);
 		this.solarChargingBattery = await getSolarChargingBattery();
 		this.generatorChargingBattery = await getGeneratorChargingBattery();
 	}
@@ -228,7 +230,7 @@ class DgPageOperations extends LitElement {
 					})()} style="top: 170px; left: 190px; width: 150px;"></div>
 
 					<div class="arrow" ?hidden=${(() => {
-						return !(this.generator < 0 && this.charging > 0);
+						return !(this.generator < 0 && this.battery > 0);
 					})()} style="top: 170px; left: 460px; width: 150px;"></div>
 					
 					<div class="arrow" ?hidden=${(() => {
@@ -250,7 +252,7 @@ class DgPageOperations extends LitElement {
 								'SUPPLYING POWER' + (this.solarChargingBattery ? ' & CHARGING BATTERY' : '') :
 								'NOT IN USE'
 						}<br>
-						<span class="colorText">${this.solar}</span> <span class="smol">generated today</span>
+						<span class="colorText">${(this.solar/1000).toFixed(2)}</span> <span class="">kW generated today</span>
 					</div>
 					<div class="icon solar">
 						<div class="backdrop">
@@ -267,7 +269,7 @@ class DgPageOperations extends LitElement {
 								'DISCHARGING' : 
 								'NEUTRAL'
 						}<br>
-						<span class="colorText">${this.charging}</span> <span class="smol">charging</span>
+						Charge Level: <span class="colorText">${this.chargeLevel}</span><span class="">%</span>
 					</div>
 					<div class="icon battery">
 						<div class="backdrop">
@@ -282,7 +284,7 @@ class DgPageOperations extends LitElement {
 								'SUPPLYING POWER' + (this.generatorChargingBattery ? ' & CHARGING BATTERY' : '') :
 								'NOT IN USE'
 						}<br>
-						<span class="colorText">${this.generator}</span> <span class="smol">generated today</span>
+						<span class="colorText">${(this.generator / 1000).toFixed(2)}</span> <span class="">kW generated today</span>
 					</div>
 					<div class="icon generator">
 						<div class="backdrop">
@@ -318,7 +320,7 @@ class DgPageOperations extends LitElement {
 							}
 
 						})()}<br>
-						<span class="colorText">${this.load}</span> <span class="smol">used today</span>
+						Today's Power Consumption: <span class="colorText">${(this.load / 1000).toFixed(2)}</span> <span class="">kW</span>
 					</div>
 					<div class="icon invert load">
 						<div class="backdrop">
